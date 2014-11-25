@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125032759) do
+ActiveRecord::Schema.define(version: 20141125065936) do
 
   create_table "feedbacks", force: true do |t|
     t.string   "device_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141125032759) do
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.string   "name"
   end
 
 end
