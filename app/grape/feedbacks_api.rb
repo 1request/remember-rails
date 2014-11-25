@@ -18,6 +18,7 @@ module Remember
             :tempfile => audio[:tempfile]
           }
           Feedback.create(
+            name: params[:name],
             device_id: params[:deviceId],
             device_type: params[:deviceType],
             audio: ActionDispatch::Http::UploadedFile.new(attachment)
