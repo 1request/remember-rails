@@ -37,7 +37,7 @@ group :development, :test do
   gem 'pry'
 
   # deployment
-  gem 'mina'
+  gem 'mina', github: 'nadarei/mina'
 end
 
 group :production do
