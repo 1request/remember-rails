@@ -4,7 +4,7 @@
 chdir: /home/ubuntu/remember/current
 environment: production
 address: 0.0.0.0
-port: 4000
+port: 3000
 timeout: 30
 log: /home/ubuntu/remember/current/log/thin.log
 pid: /home/ubuntu/remember/current/tmp/pids/thin.pid
