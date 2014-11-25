@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'grape'
 gem 'paperclip'
 gem 'thin'
+gem 'twitter-bootstrap-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
