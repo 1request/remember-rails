@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
 
+  resources :users
+  resources :locations
   resources :feedbacks
 
   require "feedbacks_api"
