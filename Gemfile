@@ -41,6 +41,14 @@ group :development, :test do
   gem 'mina', github: 'nadarei/mina'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'pg'
 end
