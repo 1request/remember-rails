@@ -3,7 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Deviceid</th>
+      <th>Device ID</th>
+      <th>Device Token</th>
+      <th>Device Type</th>
       <th>Nickname</th>
       <th colspan="3"></th>
     </tr>
@@ -12,7 +14,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.deviceId %></td>
+        <td><%= user.device_id %></td>
+        <td><%= user.device_token %></td>
+        <td><%= user.device_type %></td>
         <td><%= user.nickname %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>

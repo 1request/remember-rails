@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202122526) do
+ActiveRecord::Schema.define(version: 20141203012934) do
 
   create_table "feedbacks", force: true do |t|
     t.string   "device_id"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20141202122526) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "deviceId"
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,6 +52,9 @@ ActiveRecord::Schema.define(version: 20141202122526) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
+    t.string   "device_id"
+    t.string   "device_token"
+    t.string   "device_type"
   end
 
 end

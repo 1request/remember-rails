@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  validates :deviceId, presence: true
-  validates :deviceId, uniqueness: true
+  validates :device_id, presence: true
+  validates :device_id, uniqueness: true
 
   # for profile picture
   has_attached_file :profile_picture
