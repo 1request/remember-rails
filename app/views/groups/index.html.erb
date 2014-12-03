@@ -1,0 +1,41 @@
+<h1>Listing groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Private</th>
+      <th>Creator</th>
+      <th>Laitiude</th>
+      <th>Longitude</th>
+      <th>UUID</th>
+      <th>Major</th>
+      <th>Minor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <% location = Location.find(group.location_id) %>
+      <% creator = User.find(group.creator_id) %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.private %></td>
+        <td><%= creator.nickname %></td>
+        <td><%= location.latitude %></td>
+        <td><%= location.longitude %></td>
+        <td><%= location.uuid %></td>
+        <td><%= location.major %></td>
+        <td><%= location.minor %></td>
+        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group', new_group_path %>
