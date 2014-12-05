@@ -72,6 +72,7 @@ task :deploy => :environment do
     to :launch do
       # queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
       queue "ln -s #{deploy_to}/tmp #{deploy_to}/#{current_path}/tmp"
+      queue "ln -s #{deploy_to}/shared/uploads #{deploy_to}/#{current_path}/public/system"
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
       queue "cd #{deploy_to}/#{current_path}; bundle exec thin restart -C #{deploy_to}/#{current_path}/thin.yml"
       queue 'cd #{deploy_to}/#{current_path}'
