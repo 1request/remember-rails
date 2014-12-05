@@ -31,7 +31,13 @@ class GroupsController < ApplicationController
     @group.private = true
 
     if !location_params.empty?
-      location = Location.find_by(location_params)
+      location = Location.where(
+        longitude: location_params[:longitude],
+        latitude:  location_params[:latitude],
+        uuid:      location_params[:uuid],
+        major:     location_params[:major],
+        minor:     location_params[:minor],        
+      ).first
       location = Location.create(location_params) if !location
       @group.location_id = location.id
     end
