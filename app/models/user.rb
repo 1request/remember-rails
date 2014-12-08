@@ -7,4 +7,13 @@ class User < ActiveRecord::Base
   validates_attachment_file_name :profile_picture, :matches => [/png\Z/, /jpe?g\Z/]
 
   has_many :group
+
+  def profile_picture_url
+    ActionController::Base.asset_host + self.profile_picture.url
+  end
+
+  def as_json(options)
+    json = super
+    json.merge({"profile_picture_url" => self.profile_picture_url})
+  end
 end
