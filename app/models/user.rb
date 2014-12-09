@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   has_attached_file :profile_picture, :styles => { :thumb => "100x100>" }
   validates_attachment_file_name :profile_picture, :matches => [/png\Z/, /jpe?g\Z/]
 
-  has_many :group
+  has_many :created_group, class_name: "Group", foreign_key: "creator_id" 
+  has_many :group_users
+  has_many :groups, through: :group_users
 
   def profile_picture_url
     ActionController::Base.asset_host + self.profile_picture.url(:thumb)
