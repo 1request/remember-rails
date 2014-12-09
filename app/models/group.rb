@@ -7,7 +7,9 @@ class Group < ActiveRecord::Base
   def as_json(options)
     json = super
 
-    location = Location.find(self.location_id)
-    json.merge({"location" => location})
+    json.merge({
+      "location" => self.location,
+      "creator_profile_url" => self.creator.profile_picture_url
+    })
   end
 end
