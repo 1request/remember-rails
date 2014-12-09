@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :created_groups, class_name: "Group", foreign_key: "creator_id" 
   has_many :memberships
-  has_many :joined_groups, through: :memberships, source: :user
+  has_many :joined_groups, through: :memberships, source: :group
 
   def profile_picture_url
     ActionController::Base.asset_host + self.profile_picture.url(:thumb)
