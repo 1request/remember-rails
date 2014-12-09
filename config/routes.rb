@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :locations
   resources :groups
-  resources :group_users
+  resources :memberships
   resources :feedbacks
 
   require "feedbacks_api"
