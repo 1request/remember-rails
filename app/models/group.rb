@@ -7,9 +7,15 @@ class Group < ActiveRecord::Base
   def as_json(options)
     json = super
 
+    creator_profile_url = if self.creator
+      self.creator.profile_picture_url
+    else
+      ActionController::Base.asset_host + "/profile_pictures/thumb/missing.png"
+    end
+
     to_merge = {
       "location" => self.location,
-      "creator_profile_url" => self.creator.profile_picture_url
+      "creator_profile_url" => creator_profile_url
     }
 
     if options[:params]
