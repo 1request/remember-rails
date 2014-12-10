@@ -5,7 +5,11 @@ class AudiosController < ApplicationController
   # GET /audios
   # GET /audios.json
   def index
-    @audios = Audio.all
+    @audios = if params[:group_id]
+      Audio.where(group_id: params[:group_id])
+    else
+      Audio.all
+    end
     render json: @audios
   end
 
