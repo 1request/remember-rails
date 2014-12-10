@@ -7,9 +7,21 @@ class Group < ActiveRecord::Base
   def as_json(options)
     json = super
 
-    json.merge({
+    to_merge = {
       "location" => self.location,
       "creator_profile_url" => self.creator.profile_picture_url
-    })
+    }
+
+    if options[:params]
+      params = options[:params]
+
+      if params[:user_id]
+        membership = self.memberships.where(user_id: params[:user_id])
+        status = membership.first.status unless membership.empty?
+        to_merge[:status] = status
+      end
+    end
+
+    json.merge(to_merge)
   end
 end

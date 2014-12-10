@@ -6,13 +6,13 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
-    render json: @groups
+    render json: @groups.as_json(params: params)
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
-    render json: @group
+    render json: @group.as_json(params: params)
   end
 
   # GET /groups/new
