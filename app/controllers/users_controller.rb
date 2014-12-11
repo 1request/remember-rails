@@ -1,6 +1,24 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :push]
   protect_from_forgery :except => [:update, :create]
+
+  def push
+     APNS.host = 'gateway.push.apple.com'
+    # gateway.sandbox.push.apple.com is default
+
+    APNS.pem  = Rails.root.join('config/settings/cert.pem')
+    # this is the file you just created
+
+    APNS.port = 2195
+    # this is also the default. Shouldn't ever have to set this, but just in case Apple goes crazy, you can.
+
+    device_token = @user.device_token
+
+    APNS.send_notification(device_token, :alert => 'Hello iPhone!', :badge => 1, :sound => 'default',
+                                         :other => {:approve_member => {:membership_id => 1}})
+
+    render text: 'success'
+  end
 
   # GET /users
   # GET /users.json

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users do
+    get 'push', on: :member
+  end
   resources :locations
   resources :groups
   resources :memberships

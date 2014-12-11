@@ -23,6 +23,7 @@ gem 'grape'
 gem 'paperclip'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
+gem 'apns'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
