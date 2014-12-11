@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :groups
   resources :memberships
+  resources :audios
   resources :feedbacks
 
   require "feedbacks_api"
