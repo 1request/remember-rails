@@ -1,12 +1,12 @@
 defaults: &defaults
   # Apple Push Notification Service
   apns_host: 'gateway.push.apple.com'
-  apns_path: 'config/settings/push_ent_pro.pem'
+  apns_path: 'config/settings/push_ent_prod.pem'
 
 development:
   <<: *defaults
   apns_host: 'gateway.sandbox.push.apple.com'
-  apns_path: 'config/settings/cert.pem'
+  apns_path: 'config/settings/push_ent_dev.pem'
 
 test:
   <<: *defaults
