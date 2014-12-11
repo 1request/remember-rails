@@ -3,14 +3,11 @@ class UsersController < ApplicationController
   protect_from_forgery :except => [:update, :create]
 
   def push
-     APNS.host = 'gateway.push.apple.com'
+     APNS.host = Settings.apns_host
     # gateway.sandbox.push.apple.com is default
 
-    APNS.pem  = Rails.root.join('config/settings/cert.pem')
+    APNS.pem  = Rails.root.join(Settings.apns_path)
     # this is the file you just created
-
-    APNS.port = 2195
-    # this is also the default. Shouldn't ever have to set this, but just in case Apple goes crazy, you can.
 
     device_token = @user.device_token
 

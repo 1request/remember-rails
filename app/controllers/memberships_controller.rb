@@ -31,6 +31,7 @@ class MembershipsController < ApplicationController
     @membership.status = "applying" unless membership_params[:status]
 
     if @membership.save
+      @membership.push
       render json: @membership, status: :created
     else
       render json: @membership.errors, status: :unprocessable_entity

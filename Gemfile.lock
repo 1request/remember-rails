@@ -177,6 +177,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    settingslogic (2.0.9)
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.11.3)
@@ -239,6 +240,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  settingslogic
   spring
   sqlite3
   thin
