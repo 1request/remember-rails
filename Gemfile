@@ -25,6 +25,7 @@ gem 'thin'
 gem 'twitter-bootstrap-rails'
 gem 'apns'
 gem 'settingslogic'
+gem 'geocoder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

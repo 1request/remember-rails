@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210071446) do
+ActiveRecord::Schema.define(version: 20141216061056) do
 
   create_table "audios", force: true do |t|
     t.integer  "group_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141210071446) do
     t.integer  "minor"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
   end
 
   create_table "memberships", force: true do |t|
