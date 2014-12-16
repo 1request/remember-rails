@@ -5,7 +5,13 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @groups = if params[:user_id] && params[:status]
+      Group.joins(:memberships)
+        .where("memberships.user_id = ?", params[:user_id])
+        .where("memberships.status = ?", params[:status])
+    else
+      Group.all
+    end
     render json: @groups.as_json(params: params)
   end
 
