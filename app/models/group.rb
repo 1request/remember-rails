@@ -19,6 +19,20 @@ class Group < ActiveRecord::Base
       "creator_profile_url" => creator_profile_url
     }
 
+    if options[:list_users]
+      accepted_members = Array.new
+      self.memberships.where(status: "accepted").each do |membership|
+        accepted_members << membership.user
+      end
+      to_merge[:accepted_members] = accepted_members
+
+      applying_members = Array.new
+      self.memberships.where(status: "applying").each do |membership|
+        applying_members << membership.user
+      end
+      to_merge[:applying_members] = applying_members
+    end
+
     if options[:params]
       params = options[:params]
 
