@@ -55,6 +55,15 @@ class MembershipsController < ApplicationController
     head :no_content
   end
 
+  def unregister
+    if params[:group_id] && params[:user_id]
+      Membership.where(group_id: params[:group_id], user_id: params[:user_id]).delete_all
+      head :no_content
+    else
+      render status: :bad_request, json: {errors: "group_id or user_id is missing"}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_membership

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
   resources :locations
   resources :groups
-  resources :memberships
+  resources :memberships do
+    post 'unregister', on: :collection
+  end
   resources :audios
   resources :feedbacks
 
