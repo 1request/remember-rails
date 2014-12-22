@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :push, :picture]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :push, :picture, :thumbnail]
   protect_from_forgery :except => [:update, :create]
 
   def push
@@ -19,9 +19,17 @@ class UsersController < ApplicationController
 
   def picture
     if @user.profile_picture.path.nil?
-      send_file 'public/profile_pictures/thumb/missing.png', type: 'image/png', disposition: 'inline'
+      send_file 'public/profile_pictures/original/missing.png', type: 'image/png', disposition: 'inline'
     else
       send_file @user.profile_picture.path, disposition: 'inline'
+    end
+  end
+
+  def thumbnail
+    if @user.profile_picture.path.nil?
+      send_file 'public/profile_pictures/thumb/missing.png', type: 'image/png', disposition: 'inline'
+    else
+      send_file @user.profile_picture.path(:thumb), disposition: 'inline'
     end
   end
 
