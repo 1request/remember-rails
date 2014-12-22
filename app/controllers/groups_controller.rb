@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
         .where("memberships.user_id = ?", params[:user_id])
         .where("memberships.status = ?", params[:status])
     elsif params[:lat] && params[:lng]
-      range = if params[:range] then params[:range] else 3 end
+      range = if params[:range] then params[:range] else 10 end
       Group.joins(:location).near([params[:lat], params[:lng]], range, :units => :km)
     else
       Group.all
