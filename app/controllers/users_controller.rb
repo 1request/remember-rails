@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :push]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :push, :picture]
   protect_from_forgery :except => [:update, :create]
 
   def push
@@ -15,6 +15,14 @@ class UsersController < ApplicationController
                                          :other => {:approve_member => {:membership_id => 1}})
 
     render text: 'success'
+  end
+
+  def picture
+    if @user.profile_picture.path.nil?
+      send_file 'public/profile_pictures/thumb/missing.png', type: 'image/png', disposition: 'inline'
+    else
+      send_file @user.profile_picture.path, disposition: 'inline'
+    end
   end
 
   # GET /users
