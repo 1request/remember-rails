@@ -18,3 +18,6 @@ Group.destroy_all
 g1 = Group.create(creator: u2, location: l1, name: 'Group1', :private => true)
 
 Membership.destroy_all
+
+Audio.destroy_all
+Audio.create(group_id: g1.id, user_id: u1.id, audioclip: File.open(File.join(Rails.root, 'db', 'fixtures', 'audio.m4a')))

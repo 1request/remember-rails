@@ -1,6 +1,8 @@
 class Audio < ActiveRecord::Base
   has_attached_file :audioclip
   validates_attachment_file_name :audioclip, :matches => [/m4a\Z/]
+  belongs_to :group
+  belongs_to :user
 
   def audioclip_url
     ActionController::Base.asset_host + self.audioclip.url

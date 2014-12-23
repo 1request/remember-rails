@@ -34,6 +34,12 @@ class AudiosController < ApplicationController
     @audio = Audio.new(audio_params)
 
     if @audio.save
+      @audio.group.members.each do |member|
+        if member.id != @audio.user.id
+          member.push(@audio.group.id)
+        end
+      end
+
       render json: @audio, status: :created
     else
       render json: @audio.errors, status: :unprocessable_entity
