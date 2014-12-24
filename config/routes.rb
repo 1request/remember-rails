@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :groups
   resources :memberships do
     post 'unregister', on: :collection
+    post 'accept', on: :collection
+    post 'reject', on: :collection
   end
   resources :audios
   resources :feedbacks

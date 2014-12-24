@@ -64,6 +64,28 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def accept
+    if params[:group_id] && params[:user_id]
+      m = Membership.where(group_id: params[:group_id], user_id: params[:user_id]).first
+      m.status = "accepted"
+      m.save
+      head :no_content
+    else
+      render status: :bad_request, json: {errors: "group_id or user_id is missing"}
+    end
+  end
+
+  def reject
+    if params[:group_id] && params[:user_id]
+      m = Membership.where(group_id: params[:group_id], user_id: params[:user_id]).first
+      m.status = "rejected"
+      m.save
+      head :no_content
+    else
+      render status: :bad_request, json: {errors: "group_id or user_id is missing"}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_membership
