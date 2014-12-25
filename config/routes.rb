@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dl' => 'home#dl'
+
   resources :users do
     get 'push', on: :member
     get 'picture', on: :member
