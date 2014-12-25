@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'welcome#index'
+
   resources :users do
     get 'push', on: :member
     get 'picture', on: :member
@@ -17,4 +19,6 @@ Rails.application.routes.draw do
 
   require "feedbacks_api"
   mount Remember::FeedbackApi => '/'
+
+  get '*path' => 'welcome#index'
 end

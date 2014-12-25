@@ -27,6 +27,10 @@ gem 'apns'
 gem 'settingslogic'
 gem 'geocoder'
 
+# AngularJS
+gem 'angular-rails-engine'
+gem 'angular-rails-templates'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0'
