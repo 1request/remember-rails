@@ -1,6 +1,24 @@
-<h1>The Home View!</h1>
-<ul>
-  <li ng-repeat="thing in things">
-    {{thing}}
-  </li>
-</ul>
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nickname</th>
+      <th>Device ID</th>
+      <th>Device Token</th>
+      <th>Device Type</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="user in users">
+      <td>{{user.nickname}}</td>
+      <td>{{user.device_id}}</td>
+      <td>{{user.device_token}}</td>
+      <td>{{user.device_type}}</td>
+      <td>'Show', user</td>
+      <td>'Edit', edit_user_path(user)</td>
+    </tr>
+  </tbody>
+</table>

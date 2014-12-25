@@ -5,5 +5,7 @@ App.config ($routeProvider) ->
       templateUrl: "home.html"
       controller: "WelcomeCtrl"
 
-App.controller "WelcomeCtrl", ($scope) ->
-  $scope.things = ['Angular', 'Rails 4.1', 'Working', 'Together!!']
+App.controller "WelcomeCtrl", ($scope, $http) ->
+  $http.get '/users'
+    .success (data) ->
+      $scope.users = data
