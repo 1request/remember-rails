@@ -63,11 +63,23 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user_device_token = User.find_by_device_token(user_params['device_token'])
+    @user_device_token.device_token = nil
+    @user_device_token.save
 
     if @user.save
       render json: @user, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      @user = User.find_by_device_id(user_params['device_id'])
+      if @user
+        if @user.update(user_params)
+          render json: @user, status: :ok
+        else
+          render json: @user.errors, status: :unprocessable_entity
+        end
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
