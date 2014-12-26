@@ -1,0 +1,28 @@
+<h1>Listing users</h1>
+
+<label for="search">Search</label>
+<input type="text" ng-model="search" placeholder="Enter a search keyword" />
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nickname</th>
+      <th>Profile Pic</th>
+      <th>Device Type</th>
+      <th>Device ID</th>
+      <th>Device Token</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="user in users | filter: search | orderBy:'id':true">
+      <td>{{user.id}}</td>
+      <td>{{user.nickname}}</td>
+      <td><img ng-src="{{user.profile_picture_url}}" alt="{{user.nickname}}" /></td>
+      <td>{{user.device_type}}</td>
+      <td>{{user.device_id}}</td>
+      <td>{{user.device_token}}</td>
+    </tr>
+  </tbody>
+</table>

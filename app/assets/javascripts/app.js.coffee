@@ -1,8 +1,10 @@
 App = angular.module('RememberApp', ['ngRoute', 'templates'])
 App.config ($routeProvider, $locationProvider) ->
   $routeProvider
-    .when '/users',
+    .when '/',
       templateUrl: "home.html"
+    .when '/users',
+      templateUrl: "users.html"
       controller: "WelcomeCtrl"
     .when '/groups/:id/audios',
       templateUrl: "audios.html"
@@ -13,6 +15,9 @@ App.config ($routeProvider, $locationProvider) ->
     .when '/memberships',
       templateUrl: "memberships.html"
       controller: "MembershipsCtrl"
+    .when '/feedbacks',
+      templateUrl: "feedbacks.html"
+      controller: "FeedbacksCtrl"
     .otherwise
       redirectTo: '/users'
   $locationProvider.html5Mode(true);
@@ -36,3 +41,8 @@ App.controller "MembershipsCtrl", ($scope, $http) ->
   $http.get '/memberships'
     .success (data) ->
       $scope.memberships = data
+
+App.controller "FeedbacksCtrl", ($scope, $http) ->
+  $http.get '/feedbacks.json'
+    .success (data) ->
+      $scope.feedbacks = data
