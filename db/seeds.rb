@@ -21,3 +21,6 @@ Membership.destroy_all
 
 Audio.destroy_all
 Audio.create(group_id: g1.id, user_id: u1.id, audioclip: File.open(File.join(Rails.root, 'db', 'fixtures', 'audio.m4a')))
+
+Feedback.destroy_all
+Feedback.create(name: 'test', device_type: 'iPhone', device_id: 'test', audio: File.open(File.join(Rails.root, 'db', 'fixtures', 'audio.m4a')))
