@@ -19,7 +19,7 @@
 
   <tbody>
     <tr ng-repeat="user in users | filter: search | orderBy:'id':true">
-      <td ng-show="showMember == true">{{group.status}}</td>
+      <td ng-show="showMember == true">{{user.status}}</td>
       <td>{{user.id}}</td>
       <td>{{user.nickname}}</td>
       <td><img ng-src="{{user.profile_picture_url}}" alt="{{user.nickname}}" /></td>
