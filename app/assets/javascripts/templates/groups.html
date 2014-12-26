@@ -1,0 +1,32 @@
+<h1>Listing groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Private</th>
+      <th colspan="2">Creator</th>
+      <th>Laitiude</th>
+      <th>Longitude</th>
+      <th>UUID</th>
+      <th>Major</th>
+      <th>Minor</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="group in groups | orderBy:'id':true">
+      <td>{{group.id}}</td>
+      <td>{{group.name}}</td>
+      <td>{{group.private}}</td>
+      <td>{{group.creator_id}}</td>
+      <td><img ng-src="{{group.creator_profile_url}}" alt="{{group.creator_id}}" /></td>
+      <td>{{group.location.latitude}}</td>
+      <td>{{group.location.longitude}}</td>
+      <td>{{group.location.uuid}}</td>
+      <td>{{group.location.major}}</td>
+      <td>{{group.location.minor}}</td>
+    </tr>
+  </tbody>
+</table>
