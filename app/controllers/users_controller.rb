@@ -63,9 +63,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user_device_token = User.find_by_device_token(user_params['device_token'])
-    @user_device_token.device_token = nil
-    @user_device_token.save
+    if @user_device_token = User.find_by_device_token(user_params['device_token'])
+      @user_device_token.device_token = nil
+      @user_device_token.save
+    end
 
     if @user.save
       render json: @user, status: :created
