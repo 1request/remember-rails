@@ -10,7 +10,7 @@
     <th>Device ID</th>
   </thead>
   <tbody>
-    <tr ng-repeat="feedback in feedbacks">
+    <tr ng-repeat="feedback in feedbacks | orderBy:'id':true">
       <td>{{feedback.id}}</td>
       <td>
         <span>

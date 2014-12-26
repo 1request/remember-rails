@@ -1,8 +1,12 @@
 <h1>Listing groups</h1>
 
+<label for="search">Search</label>
+<input type="text" ng-model="search" placeholder="Enter a search keyword" />
+
 <table>
   <thead>
     <tr>
+      <th ng-show="showMember == true">Status</th>
       <th>ID</th>
       <th>Name</th>
       <th>Private</th>
@@ -17,7 +21,8 @@
   </thead>
 
   <tbody>
-    <tr ng-repeat="group in groups | orderBy:'id':true">
+    <tr ng-repeat="group in groups | filter: search | orderBy:'id':true">
+      <td ng-show="showMember == true">{{group.status}}</td>
       <td>{{group.id}}</td>
       <td>{{group.name}}</td>
       <td>{{group.private}}</td>
