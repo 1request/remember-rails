@@ -1,0 +1,57 @@
+<p>
+  <strong>ID:</strong>
+  {{group.id}}
+</p>
+
+<p>
+  <strong>Name:</strong>
+  {{group.name}}
+</p>
+
+<p>
+  <strong>Private:</strong>
+  {{group.private}}
+</p>
+
+<p>
+  <strong>Creator Profile Picture:</strong>
+  <img ng-src="{{group.creator_profile_url}}" alt="{{group.name}}" />
+</p>
+
+<p><a ng-href="/groups/{{group.id}}/audios">Show Audios</a></p>
+
+<hr>
+
+<p>Location:</p>
+
+<p>
+  <strong>Address:</strong>
+  {{group.location.address}}
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  {{group.location.latitude}}
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  {{group.location.longitude}}
+</p>
+
+<p>
+  <strong>UUID:</strong>
+  {{group.location.uuid}}
+</p>
+
+<p>
+  <strong>Major:</strong>
+  {{group.location.major}}
+</p>
+
+<p>
+  <strong>Minor:</strong>
+  {{group.location.minor}}
+</p>
+
+<a href="/groups">Back</a>

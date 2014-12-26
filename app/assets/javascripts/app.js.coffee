@@ -5,13 +5,19 @@ App.config ($routeProvider, $locationProvider) ->
       templateUrl: "home.html"
     .when '/users',
       templateUrl: "users.html"
-      controller: "WelcomeCtrl"
+      controller: "UsersCtrl"
+    .when '/users/:id',
+      templateUrl: "user.html"
+      controller: "UserCtrl"
     .when '/users/:id/groups',
       templateUrl: "groups.html"
       controller: "UserGroupsCtrl"
     .when '/groups',
       templateUrl: "groups.html"
       controller: "GroupsCtrl"
+    .when '/groups/:id',
+      templateUrl: "group.html"
+      controller: "GroupCtrl"
     .when '/groups/:id/audios',
       templateUrl: "audios.html"
       controller: "AudiosCtrl"
@@ -28,10 +34,15 @@ App.config ($routeProvider, $locationProvider) ->
       redirectTo: '/users'
   $locationProvider.html5Mode(true);
 
-App.controller "WelcomeCtrl", ($scope, $http) ->
+App.controller "UsersCtrl", ($scope, $http) ->
   $http.get '/users'
     .success (data) ->
       $scope.users = data
+
+App.controller "UserCtrl", ($scope, $http, $routeParams) ->
+  $http.get "/users/#{$routeParams.id}"
+    .success (data) ->
+      $scope.user = data
 
 App.controller "UserGroupsCtrl", ($scope, $http, $routeParams) ->
   $scope.showMember = true
@@ -43,6 +54,11 @@ App.controller "GroupsCtrl", ($scope, $http) ->
   $http.get '/groups'
     .success (data) ->
       $scope.groups = data
+
+App.controller "GroupCtrl", ($scope, $http, $routeParams) ->
+  $http.get "/groups/#{$routeParams.id}"
+    .success (data) ->
+      $scope.group = data
 
 App.controller "AudiosCtrl", ($scope, $http, $routeParams) ->
   $http.get "/audios?group_id=#{$routeParams.id}"

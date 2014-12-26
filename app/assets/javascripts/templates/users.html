@@ -13,7 +13,7 @@
       <th>Device Type</th>
       <th>Device ID</th>
       <th>Device Token</th>
-      <th>Memberships</th>
+      <th colspan="2">Memberships</th>
     </tr>
   </thead>
 
@@ -26,7 +26,10 @@
       <td>{{user.device_type}}</td>
       <td>{{user.device_id}}</td>
       <td>{{user.device_token}}</td>
-      <td><a ng-href="/users/{{user.id}}/groups">Show Groups</a></td>
+      <td>
+        <a ng-href="/users/{{user.id}}">Detail</a>
+        <a ng-href="/users/{{user.id}}/groups">Show Groups</a>
+      </td>
     </tr>
   </tbody>
 </table>

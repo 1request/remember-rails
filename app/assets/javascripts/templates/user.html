@@ -1,0 +1,31 @@
+<p>
+  <strong>ID:</strong>
+  {{user.id}}
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  {{user.nickname}}
+</p>
+
+<p>
+  <strong>Device Type:</strong>
+  {{user.device_type}}
+</p>
+
+<p>
+  <strong>Device ID:</strong>
+  {{user.device_id}}
+</p>
+
+<p>
+  <strong>Device Token:</strong>
+  {{user.device_token}}
+</p>
+
+<p>
+  <strong>Profile Picture:</strong>
+  <img ng-src="{{user.profile_picture_url}}" alt="{{user.nickname}}" />
+</p>
+
+<a href="/users">Back</a>
