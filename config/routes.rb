@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     get 'groups', on: :member
   end
   resources :locations
-  resources :groups
+  resources :groups do
+    get 'users', on: :member
+  end
   resources :memberships do
     post 'unregister', on: :collection
     post 'accept', on: :collection

@@ -17,6 +17,7 @@
       <th>Major</th>
       <th>Minor</th>
       <th>Audios</th>
+      <th>Memberships</th>
     </tr>
   </thead>
 
@@ -33,7 +34,8 @@
       <td>{{group.location.uuid}}</td>
       <td>{{group.location.major}}</td>
       <td>{{group.location.minor}}</td>
-      <td><a ng-href="groups/{{group.id}}/audios">Show Audios</a></td>
+      <td><a ng-href="/groups/{{group.id}}/audios">Show Audios</a></td>
+      <td><a ng-href="/groups/{{group.id}}/users">Show Members</a></td>
     </tr>
   </tbody>
 </table>

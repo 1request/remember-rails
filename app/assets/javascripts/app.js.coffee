@@ -9,12 +9,15 @@ App.config ($routeProvider, $locationProvider) ->
     .when '/users/:id/groups',
       templateUrl: "groups.html"
       controller: "UserGroupsCtrl"
-    .when '/groups/:id/audios',
-      templateUrl: "audios.html"
-      controller: "AudiosCtrl"
     .when '/groups',
       templateUrl: "groups.html"
       controller: "GroupsCtrl"
+    .when '/groups/:id/audios',
+      templateUrl: "audios.html"
+      controller: "AudiosCtrl"
+    .when '/groups/:id/users',
+      templateUrl: "users.html"
+      controller: "GroupUsersCtrl"
     .when '/memberships',
       templateUrl: "memberships.html"
       controller: "MembershipsCtrl"
@@ -45,6 +48,12 @@ App.controller "AudiosCtrl", ($scope, $http, $routeParams) ->
   $http.get "/audios?group_id=#{$routeParams.id}"
     .success (data) ->
       $scope.audios = data
+
+App.controller "GroupUsersCtrl", ($scope, $http, $routeParams) ->
+  $scope.showMember = true
+  $http.get "/groups/#{$routeParams.id}/users.json"
+    .success (data) ->
+      $scope.users = data
 
 App.controller "MembershipsCtrl", ($scope, $http) ->
   $http.get '/memberships'
