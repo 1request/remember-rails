@@ -1,6 +1,10 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :users]
   protect_from_forgery :except => [:update, :destory, :create]
+
+  def users
+    @memberships = @group.memberships
+  end
 
   # GET /groups
   # GET /groups.json

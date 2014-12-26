@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :push, :picture, :thumbnail]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :push, :picture, :thumbnail, :groups]
   protect_from_forgery :except => [:update, :create]
 
   def push
@@ -31,6 +31,10 @@ class UsersController < ApplicationController
     else
       send_file @user.profile_picture.path(:thumb), disposition: 'inline'
     end
+  end
+
+  def groups
+    @memberships = @user.memberships
   end
 
   # GET /users

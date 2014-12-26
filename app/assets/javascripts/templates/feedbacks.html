@@ -1,0 +1,29 @@
+<h1>Feedbacks</h1>
+
+<table class="table table-striped">
+  <thead>
+    <th>ID</th>
+    <th>Audio</th>
+    <th>Created At</th>
+    <th>Name</th>
+    <th>Device Type</th>
+    <th>Device ID</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="feedback in feedbacks | orderBy:'id':true">
+      <td>{{feedback.id}}</td>
+      <td>
+        <span>
+          <audio controls>
+            <source ng-src="{{feedback.audioclip_url}}" type="audio/mpeg">
+            audio tag not supported.
+          </audio>
+        </span>
+      </td>
+      <td>{{feedback.created_at}}</td>
+      <td>{{feedback.name}}</td>
+      <td>{{feedback.device_type}}</td>
+      <td>{{feedback.device_id}}</td>
+    </tr>
+  </tbody>
+</table>

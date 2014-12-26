@@ -1,0 +1,44 @@
+<h1>Listing groups</h1>
+
+<label for="search">Search</label>
+<input type="text" ng-model="search" placeholder="Enter a search keyword" />
+
+<table>
+  <thead>
+    <tr>
+      <th ng-show="showMember == true">Status</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Private</th>
+      <th colspan="2">Creator</th>
+      <th>Laitiude</th>
+      <th>Longitude</th>
+      <th>UUID</th>
+      <th>Major</th>
+      <th>Minor</th>
+      <th>Audios</th>
+      <th colspan="2">Memberships</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="group in groups | filter: search | orderBy:'id':true">
+      <td ng-show="showMember == true">{{group.status}}</td>
+      <td>{{group.id}}</td>
+      <td>{{group.name}}</td>
+      <td>{{group.private}}</td>
+      <td>{{group.creator_id}}</td>
+      <td><img ng-src="{{group.creator_profile_url}}" alt="{{group.creator_id}}" /></td>
+      <td>{{group.location.latitude}}</td>
+      <td>{{group.location.longitude}}</td>
+      <td>{{group.location.uuid}}</td>
+      <td>{{group.location.major}}</td>
+      <td>{{group.location.minor}}</td>
+      <td><a ng-href="/groups/{{group.id}}/audios">Show Audios</a></td>
+      <td>
+        <a ng-href="/groups/{{group.id}}">Detail</a>
+        <a ng-href="/groups/{{group.id}}/users">Show Members</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

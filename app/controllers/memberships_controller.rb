@@ -12,7 +12,7 @@ class MembershipsController < ApplicationController
   # GET /memberships/1
   # GET /memberships/1.json
   def show
-    render json: @membershipc
+    render json: @membership
   end
 
   # GET /memberships/new

@@ -1,0 +1,21 @@
+<h1>Listing memberships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Group</th>
+      <th>User</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="membership in memberships | orderBy:'id':true">
+      <td>{{membership.id}}</td>
+      <td><a ng-href="/groups/{{membership.group_id}}">{{membership.group_id}}</a></td>
+      <td><a ng-href="/users/{{membership.user_id}}">{{membership.user_id}}</a></td>
+      <td>{{membership.status}}</td>
+    </tr>
+  </tbody>
+</table>
