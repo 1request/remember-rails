@@ -1,0 +1,24 @@
+<h1>Listing audios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Audio</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="audio in audios">
+      <td>{{audio.user_id}}</td>
+      <td>
+        <span>
+          <audio controls>
+            <source ng-src="{{audio.audioclip_url}}" type="audio/mpeg">
+            audio tag not supported.
+          </audio>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

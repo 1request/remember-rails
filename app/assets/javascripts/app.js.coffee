@@ -4,6 +4,9 @@ App.config ($routeProvider, $locationProvider) ->
     .when '/users',
       templateUrl: "home.html"
       controller: "WelcomeCtrl"
+    .when '/groups/:id/audios',
+      templateUrl: "audios.html"
+      controller: "AudiosCtrl"
     .when '/groups',
       templateUrl: "groups.html"
       controller: "GroupsCtrl"
@@ -23,6 +26,11 @@ App.controller "GroupsCtrl", ($scope, $http) ->
   $http.get '/groups'
     .success (data) ->
       $scope.groups = data
+
+App.controller "AudiosCtrl", ($scope, $http, $routeParams) ->
+  $http.get "/audios?group_id=#{$routeParams.id}"
+    .success (data) ->
+      $scope.audios = data
 
 App.controller "MembershipsCtrl", ($scope, $http) ->
   $http.get '/memberships'
