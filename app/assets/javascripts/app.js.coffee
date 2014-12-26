@@ -83,6 +83,20 @@ App.controller "MembershipsCtrl", ["$scope", "$http", ($scope, $http) ->
   $http.get '/memberships'
     .success (data) ->
       $scope.memberships = data
+
+  $scope.accept = (groupId, userId) ->
+    $http.post "/memberships/accept",
+      group_id: groupId
+      user_id: userId
+    .success (data) =>
+      @membership.status = 'accepted'
+
+  $scope.reject = (groupId, userId) ->
+    $http.post "/memberships/reject",
+      group_id: groupId
+      user_id: userId
+    .success (data) =>
+      @membership.status = 'rejected'
 ]
 
 App.controller "FeedbacksCtrl", ["$scope", "$http", ($scope, $http) ->

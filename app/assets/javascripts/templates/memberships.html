@@ -7,6 +7,7 @@
       <th>Group</th>
       <th>User</th>
       <th>Status</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,6 +17,8 @@
       <td><a ng-href="/groups/{{membership.group_id}}">{{membership.group_id}}</a></td>
       <td><a ng-href="/users/{{membership.user_id}}">{{membership.user_id}}</a></td>
       <td>{{membership.status}}</td>
+      <td ng-hide="membership.status == 'accepted'"><a href="#" ng-click="accept(membership.group_id, membership.user_id)">Approve</a></td>
+      <td ng-hide="membership.status == 'rejected'"><a href="#" ng-click="reject(membership.group_id, membership.user_id)">Reject</a></td>
     </tr>
   </tbody>
 </table>
