@@ -16,8 +16,10 @@ l1 = Location.create(longitude: 114.141581141345, latitude: 22.3347568068943)
 
 Group.destroy_all
 g1 = Group.create(creator: u2, location: l1, name: 'Group1', :private => true)
+g2 = Group.create(creator: u3, location: l1, name: 'Group2', :private => true)
 
 Membership.destroy_all
+Membership.create(user: u1, group: g1, status: 'applying')
 
 Audio.destroy_all
 Audio.create(group_id: g1.id, user_id: u1.id, audioclip: File.open(File.join(Rails.root, 'db', 'fixtures', 'audio.m4a')))

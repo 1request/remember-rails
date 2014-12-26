@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates_attachment_file_name :profile_picture, :matches => [/png\Z/, /jpe?g\Z/]
 
   has_many :created_groups, class_name: "Group", foreign_key: "creator_id"
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :joined_groups, through: :memberships, source: :group
 
   def profile_picture_url

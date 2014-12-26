@@ -39,6 +39,12 @@ App.controller "UsersCtrl", ["$scope", "$http", ($scope, $http) ->
   $http.get '/users'
     .success (data) ->
       $scope.users = data
+
+  $scope.remove = (userId) ->
+    $http.delete "/users/#{userId}"
+      .success (data) ->
+        $scope.users = $scope.users.filter (user) ->
+          user.id != userId
 ]
 
 App.controller "UserCtrl", ["$scope", "$http", "$routeParams", ($scope, $http, $routeParams) ->
@@ -58,6 +64,12 @@ App.controller "GroupsCtrl", ["$scope", "$http", ($scope, $http) ->
   $http.get '/groups'
     .success (data) ->
       $scope.groups = data
+
+  $scope.remove = (groupId) ->
+    $http.delete "/groups/#{groupId}"
+      .success (data) ->
+        $scope.groups = $scope.groups.filter (group) ->
+          group.id != groupId
 ]
 
 App.controller "GroupCtrl", ["$scope", "$http", "$routeParams", ($scope, $http, $routeParams) ->
