@@ -22,10 +22,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'grape'
 gem 'paperclip'
 gem 'thin'
-gem 'twitter-bootstrap-rails'
 gem 'apns'
 gem 'settingslogic'
 gem 'geocoder'
+
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 
 # AngularJS
 gem 'angular-rails-engine'

@@ -1,11 +1,20 @@
-<h1>Remember - Control Panel</h1>
-<div ng-app="RememberApp">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/users">Users</a></li>
-    <li><a href="/groups">Groups</a></li>
-    <li><a href="/memberships">Memberships</a></li>
-    <li><a href="/feedbacks">Feedbacks</a></li>
-  </ul>
-  <div ng-view=""></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/groups">Groups</a></li>
+        <li><a href="/memberships">Memberships</a></li>
+        <li><a href="/feedbacks">Feedbacks</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Export</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
+  </div>
 </div>
