@@ -35,6 +35,13 @@ App.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationPro
   $locationProvider.html5Mode(true);
 ]
 
+App.controller "SidebarCtrl", ["$scope", "$location", ($scope, $location) ->
+  $scope.isActive = (viewLocation) ->
+    return 'active' if $location.path().indexOf(viewLocation) > 0
+  $scope.isHome = (viewLocation) ->
+    return 'active' if $location.path() == viewLocation
+]
+
 App.controller "UsersCtrl", ["$scope", "$http", ($scope, $http) ->
   $http.get '/users'
     .success (data) ->
@@ -79,6 +86,8 @@ App.controller "GroupCtrl", ["$scope", "$http", "$routeParams", ($scope, $http, 
 ]
 
 App.controller "AudiosCtrl", ["$scope", "$http", "$routeParams", ($scope, $http, $routeParams) ->
+  $scope.groupId = $routeParams.id
+
   $http.get "/audios?group_id=#{$routeParams.id}"
     .success (data) ->
       $scope.audios = data

@@ -1,6 +1,6 @@
 <h1>Listing memberships</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
@@ -14,11 +14,15 @@
   <tbody>
     <tr ng-repeat="membership in memberships | orderBy:'id':true">
       <td>{{membership.id}}</td>
-      <td><a ng-href="/groups/{{membership.group_id}}">{{membership.group_id}}</a></td>
-      <td><a ng-href="/users/{{membership.user_id}}">{{membership.user_id}}</a></td>
+      <td><a class="btn btn-success btn-sm" ng-href="/groups/{{membership.group_id}}">{{membership.group_id}}</a></td>
+      <td><a class="btn btn-success btn-sm" ng-href="/users/{{membership.user_id}}">{{membership.user_id}}</a></td>
       <td>{{membership.status}}</td>
-      <td ng-hide="membership.status == 'accepted'"><a href="#" ng-click="accept(membership.group_id, membership.user_id)">Approve</a></td>
-      <td ng-hide="membership.status == 'rejected'"><a href="#" ng-click="reject(membership.group_id, membership.user_id)">Reject</a></td>
+      <td ng-hide="membership.status == 'accepted'">
+        <a class="btn btn-success" href="#" ng-click="accept(membership.group_id, membership.user_id)">Approve</a>
+      </td>
+      <td ng-hide="membership.status == 'rejected'">
+        <a class="btn btn-danger" href="#" ng-click="reject(membership.group_id, membership.user_id)">Reject</a>
+      </td>
     </tr>
   </tbody>
 </table>

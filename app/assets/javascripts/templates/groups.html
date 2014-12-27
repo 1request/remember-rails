@@ -3,7 +3,7 @@
 <label for="search">Search</label>
 <input type="text" ng-model="search" placeholder="Enter a search keyword" />
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th ng-show="showMember == true">Status</th>
@@ -34,11 +34,11 @@
       <td>{{group.location.uuid}}</td>
       <td>{{group.location.major}}</td>
       <td>{{group.location.minor}}</td>
-      <td><a ng-href="/groups/{{group.id}}/audios">Show Audios</a></td>
+      <td><a class="btn btn-info" ng-href="/groups/{{group.id}}/audios">Show Audios</a></td>
       <td>
-        <a ng-href="/groups/{{group.id}}">Detail</a>
-        <a ng-href="/groups/{{group.id}}/users">Show Members</a>
-        <a ng-click="remove(group.id)">Remove</a>
+        <a class="btn btn-success" ng-href="/groups/{{group.id}}">Detail</a>
+        <a class="btn btn-info" ng-href="/groups/{{group.id}}/users">Show Members</a>
+        <a class="btn btn-danger" ng-click="remove(group.id)">Remove</a>
       </td>
     </tr>
   </tbody>

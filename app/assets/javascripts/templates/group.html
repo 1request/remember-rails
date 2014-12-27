@@ -1,3 +1,5 @@
+<h1>Listing group: {{group.id}}</h1>
+
 <p>
   <strong>ID:</strong>
   {{group.id}}
@@ -18,7 +20,7 @@
   <img ng-src="{{group.creator_profile_url}}" alt="{{group.name}}" />
 </p>
 
-<p><a ng-href="/groups/{{group.id}}/audios">Show Audios</a></p>
+<p><a class="btn btn-info" ng-href="/groups/{{group.id}}/audios">Show Audios</a></p>
 
 <hr>
 
@@ -54,4 +56,4 @@
   {{group.location.minor}}
 </p>
 
-<a href="/groups">Back</a>
+<a class="btn btn-primary" href="/groups">Back</a>
