@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
     device_token = self.device_token unless self.device_token.nil?
 
-    APNS.send_notification(device_token, :badge => 0, :sound => 'default',
+    APNS.send_notification(device_token, :badge => 0,
                                          :other => {:new_audio => {:group_id => group_id}})
   end
 
