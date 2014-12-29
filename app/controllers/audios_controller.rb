@@ -36,8 +36,11 @@ class AudiosController < ApplicationController
     if @audio.save
       @audio.group.members.each do |member|
         if member.id != @audio.user.id
-          member.push(@audio.group.id)
+          member.user.push(@audio.group.id)
         end
+      end
+      if @audio.user.id != @audio.group.creator.id
+        @audio.group.creator.push(@audio.group.id)
       end
 
       render json: @audio, status: :created
