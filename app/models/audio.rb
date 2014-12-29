@@ -5,7 +5,7 @@ class Audio < ActiveRecord::Base
   belongs_to :user
 
   def audioclip_url
-    ActionController::Base.asset_host + self.audioclip.url
+    self.audioclip.url
   end
 
   def as_json(options)

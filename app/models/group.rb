@@ -11,7 +11,7 @@ class Group < ActiveRecord::Base
     creator_profile_url = if self.creator
       self.creator.profile_picture_url
     else
-      ActionController::Base.asset_host + "/profile_pictures/thumb/missing.png"
+      "/profile_pictures/thumb/missing.png"
     end
 
     to_merge = {

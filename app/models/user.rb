@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :joined_groups, through: :memberships, source: :group
 
   def profile_picture_url
-    ActionController::Base.asset_host + self.profile_picture.url(:thumb)
+    self.profile_picture.url(:thumb)
   end
 
   def push(group_id)
